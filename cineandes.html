@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cineAndes</title>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#ffffff"-->
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+	<link id="page_favicon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jZPjP8J+BAsA4agDDaBgwjIYBw7AIAwCV5B/xAsMbygAAAABJRU5ErkJggg==" rel="icon" type="image/x-icon">
+	<link id="page_favicon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAJRJREFUOE+lk8sRgCAMBZdK7EQ78aRV6clOsDEcBhn+UZQrvM0mgAIMP5YSARqYZHobsAAbsAJ7G9IG+MZO2aIOsOpjVFWwKAFePbYWLEpAXt2D7MnKSgG16jbUCPstN64BOLLeH8IB8DEcADV1QTsehZtBPriX4WDQ+xuia3W1NCZ5OG8+1/24gmwvxFrM5Q33NsMFSCclILmgibAAAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
+	<link id="page_favicon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAJpJREFUOE+dk9ERhCAMBddK7ORs5qzK+7ITbQyHGRkgvuRUPoFsliQMQCJaGzD5F4YQ8AUWYAZ+GhIDitvuW/iArP5psjoWGlDUW2vHQgNs9gLKt826AlT2HCSCy3Zt4wis5u1BcA94EdwDlLqj3Zah1sAW7kZw+7r0Z6Cv5T/bWvNspG5wwg9yHs62OU8hu+5u/DvFICnZ25ADh1QkJhgJwNMAAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
+	<style type="text/css">
+		
+
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			cursor: default;
+			}
+
+			a{
+				text-decoration: none;		
+				color: inherit;
+				cursor: pointer;
+				}
+
+		::selection{
+					background: hsl(222, 4%, 33%);
+					color: hsl( 0, 0%, 100% )
+					}
+		::-moz-selection{
+					background: hsl(222, 4%, 33%);
+					color: hsl( 0, 0%, 100% )
+					}
+
+		::-webkit-scrollbar{
+							width: 10px;
+							background: transparent
+							}
+
+		::-webkit-scrollbar-track{ background: transparent }
+		::-webkit-scrollbar-thumb{
+								background: transparent;
+								border-top: 0 !important;
+								border-bottom: 0 !important;
+								border-left: 10px solid hsla(222, 100%, 11%, 0.2);
+								}
+
+		body{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			min-width: 320px !important;
+			/*background: #555;*/
+			overflow-x: hidden;
+			}
+
+
+		#bar{
+			position: fixed;
+			width: 100%;
+			height: 72px;
+			background: #000;
+			box-sizing: border-box;
+			z-index: 10;
+			}
+
+			#bar_wrap{
+					position: absolute;
+					width: 320px;
+					height: 72px;
+					}
+
+					#bar_wrap_svg{
+								position: absolute;
+								width: 48px;
+								height: 48px;
+								right: 72px;
+								fill:  #000;
+								background: #0f0;
+								border: 12px solid #0f0;
+								}
+
+					#bar_wrap_title{
+								position: absolute;
+								color: #fff;
+								font-size: 24px;
+								/* font-family: 'Josefin Sans', sans-serif; */
+								width: 176px;
+								height: 72px;
+								line-height: 72px;
+								/* left: 66px; */
+								/* bottom: 22px; */
+								text-align: center;
+								letter-spacing: 1px;
+								}
+								#bar_wrap_title span{
+													font-size: .8em;
+													}
+
+
+			#legal{
+				position: absolute;
+				width: 100%;
+				top: 80px;
+				font-size: 12px;
+				text-align: right;
+				padding: 0 24px;
+				box-sizing: border-box;
+				/*color: hsl(0deg 100% 90% / 50%);*/
+				}
+
+			
+			#status{
+				position: absolute;
+				padding: 0 12px;
+				background: #ffffff;
+				color: #000;
+				/* font-weight: bold; */
+				height: 24px;
+				line-height: 24px;
+				left: 282px;
+				top: 24px;
+				border-radius: 4px;
+				font-size: 12px;
+				letter-spacing: 1px;
+				}
+
+
+			#menu{
+				position: absolute;
+				left: 320px;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				line-height: 72px;
+				/* background: pink; */
+				color: #0f0;
+				/* float: right; */
+				padding-right: 18px;
+				text-align: right;
+				font-size: 15px;
+				letter-spacing: 1px;
+				}
+				#menu span{
+							/* margin: 6px; */
+							/* width: 16%; */
+							padding: 0 18px;
+							/* text-align: center; */
+							/* justify-content: space-around; */
+							/* background: pink; */
+							}
+							#menu span:hover{
+											color: #fff;
+											cursor: pointer !important;
+											}
+
+							#menu_menu{ display: none; }
+
+
+		#watermark{
+				position: fixed;
+				top: -10%;
+				left: -10%;
+				width: 120%;
+				height: 120%;
+				min-width: 400px;
+				min-height: 800px;
+				background: url(cienAndes.2022.04.11.10.23.svg);
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: left top;
+				z-index: -1;
+				}
+
+
+		iframe{
+				position: absolute;
+				top: 102px;
+				left: 18px;
+				}
+
+		#news{
+				position: relative;
+				width: 100%;
+				height: 400px;
+				margin-top: 70px;
+				}
+				#news span b{ font-size: .5em; padding: 0 3px; }
+				#news_1{
+						/*align-items: flex-end; */
+						top: 50%;
+						/* margin-top: -100px; */
+						font-size: 120px;
+						/* background: grey; */
+						position: relative;
+						height: 100px;
+						margin-top: -100px;
+						/* line-height: 100px; */
+						width: 100%;
+						text-align: center;
+						color: #000000;
+						font-weight: bold;
+						/* overflow: hidden; */
+						/*background: grey;*/
+						vertical-align: bottom;
+						/* display: table-cell; */
+						/* vertical-align: middle; */
+						padding: 0 !important;
+						display: flex;
+						align-items: flex-end;
+						justify-content: center;
+						}
+				#news_2{
+						font-size: 42px;
+						position: absolute;
+						top: 50%;
+						margin-top: 100px;
+						/*background: #c3b2b2;*/
+						font-weight: bold;
+						/* line-height: 42px; */
+						height: 60px;
+						width: 100%;
+						text-align: center;
+						}
+
+
+		#movies{
+				position: initial;
+				width: 100%;
+				top: 372px;
+				padding: 36px 0 120px 0;
+				box-sizing: border-box;
+
+				width: 100%;
+				margin: 0 auto;
+				display: grid;
+				grid-template-columns: repeat( auto-fit, 384px );
+				justify-content: center;
+				gap: 6px;		
+				}
+				.movie{
+					position: relative;
+					width: 384px;
+					height: 224px;
+					background: hsl(240deg 100% 10%);
+					/*border-bottom-left-radius: 30px;*/
+					overflow: auto;
+								box-shadow: 0px 2px 6px 1px rgb(0 0 0 / 50%);
+					}
+					.movie:hover{
+								/*border-bottom: 1px solid rgb(255 255 255 / 50%);*/
+								margin-top: -1px;
+								}
+								.movie:hover .movie_play{ background: url(play_black.svg) #0f0; }
+								.movie *{ cursor: pointer !important }
+					.movie_play{
+								position: absolute;
+								width: 36px;
+								height: 36px;
+								top: 50%;
+								left: 50%;
+								margin: -23px;
+								background: url(play.svg) rgb(0 0 0 / 50%);
+								background-size: 80% !important;
+								background-repeat: no-repeat !important;
+								background-position: center !important;
+								border: 10px solid transparent;
+								/* border-radius: 50%; */
+								z-index: 1;
+								/* fill: red; */
+								border-radius: 50%;
+								}
+					.movie_poster{
+								position: absolute;
+								width: 50%;
+								height: 100%;
+								/*background: url(posters/poster_strange.jpg);*/
+								background-size: cover !important;
+								background-position: center !important;
+								}
+								.movie_poster_brand{
+													position: absolute;
+													width: 50%;
+													height: 25%;
+													left: -1px;
+													background-repeat: no-repeat !important;
+													background-size: contain !important;
+													}
+
+													.movie_poster_brand.brand_top_right{
+																						right: 0;
+																						left: auto;
+																						background-position: top right !important;
+																						}
+
+													.movie_poster_brand.brand_bottom_left{
+																						bottom: 0;
+																						background-position: bottom !important;
+																						}
+
+													.movie_poster_brand.brand_bottom_right{
+																						right: 0;
+																						left: auto;
+																						bottom: 0;
+																						background-position: bottom right; !important;
+																						}
+
+													.movie_poster_brand.marvel{ background: url(marvel.svg); }
+													.movie_poster_brand.warner{ background: url(warner.png); }
+													.movie_poster_brand.universal{ background: url(universal.png); }
+
+					.movie_description{
+									position: absolute;
+									width: 50%;
+									height: 100%;
+									right: 0;
+									box-sizing: border-box;
+									text-align: center;
+									/* margin-left: 14px; */
+									/* border-bottom: 1px solid #666666; */
+									border-left: 1px solid hsl(240deg 100% 72%);
+									background: hsl(240deg 100% 10%);
+									}
+									.movie_description_title{
+															color: hsl(240deg 80% 80%);
+															font-size: 12px;
+															line-height: 16px;
+															letter-spacing: .5px;
+															top: 0;
+															left: 0;
+															position: absolute;
+															width: 100%;
+															padding: 12px 18px;
+															text-align: center;
+															box-sizing: border-box;
+															text-transform: uppercase;
+															}
+
+									.movie_description_date{
+															overflow: hidden;
+															position: absolute;
+															width: 100%;
+															height: 100%;
+															}
+															.movie_description_date_number{
+																						font-size: 114px;
+																						color: hsl(240deg 100% 72%);
+																						position: absolute;
+																						bottom: 54px;
+																						width: 150%;
+																						height: 100px;
+																						line-height: 109px;
+																						left: -25%;
+																						font-weight: bold;
+																						overflow: hidden;
+																						text-transform: uppercase;
+																						letter-spacing: -6px;
+																						}
+															.movie_description_date_month{
+																						position: absolute;
+																						font-size: 36px;
+																						width: 100%;
+																						height: 24px;
+																						background: hsl(240deg 100% 60%);
+																						bottom: 36px;
+																						left: 0;
+																						text-transform: uppercase;
+																						line-height: 24px;
+																						overflow: hidden;
+																						font-weight: bold;
+																						}
+
+									.movie_description_addons{
+															position: absolute;
+															left: 0;
+															height: 18px;
+															width: 100%;
+															line-height: 18px;
+															bottom: 8px;
+															font-size: 12px;
+															color: #0f0;
+															/* border-left: 1px solid #3333ff; */
+															/* padding: 0 6px; */
+															box-sizing: border-box;
+															text-align: center;
+															letter-spacing: .5px;
+															}
+
+			.section{
+					position: initial;
+					padding: 90px 0 300px 0;
+					width: 100%;
+					height: 300px;
+					box-sizing: border-box;
+					text-align: center;
+					/*text-align: left;*/
+					}
+/*					.section_title:before{
+									position: absolute;
+									content: '';
+									height: 2px;
+									width: 30%;
+									background: #000;
+									right: 0;
+									}*/
+					.section_title{
+								font-size: 84px;
+								font-weight: bold;
+								color: #000;
+								border-bottom: 2px solid lime;
+								box-shadow: 0px 2px 0px 0px white;
+								padding: 0 9000px 0 12px;
+								padding: 0 9000px 0 9000px;
+								/* right: 0; */
+								margin: 0 -9000px;
+								}
+
+
+
+#disclaimer{
+			background: #ccc;
+			padding: 90px 10% 300px 10%;
+			text-align: justify;
+			font-size: 12px;
+			height: auto;
+			}
+
+
+
+@media (max-width: 1039px){
+						#news_1{ font-size: 80px; }
+						}
+
+
+@media (max-width: 899px){
+						#menu span{ padding: 0 6px; }
+						}
+
+@media (max-width: 769px){
+						/*#menu span{ display: none; }*/
+						#legal{ font-size: 10px; }
+
+/*						#bar_wrap{ width: 100%; }
+						#bar_wrap_svg{
+									left: 50%;
+    								margin-left: -30px;
+    								}*/
+
+    					#status{ display: none; }
+    					#mas{
+    						display: block;
+    						}
+						}
+
+@media (max-width: 730px){
+						#menu{ left: 248px; text-align: center; padding: 0; }
+						}
+
+@media (max-width: 699px){
+						#menu_cartelera{ display: none; }
+						#news{ height: 300px; }
+						#news_1{ font-size: 70px; }
+						#watermark{
+								width: 100%;
+								height: 100%;
+								background-size: cover !important;
+								}
+						}
+
+@media (max-width: 599px){
+						#menu_comida{ display: none; }
+						#news_1{ font-size: 60px; }
+						.section_title{ font-size: 60px; }
+						}
+
+@media (max-width: 499px){
+						#menu_membresia{ display: none; }
+
+						#news_1{ font-size: 50px; }
+						#news_2{ font-size: 30px; }
+						}
+
+@media (max-width: 449px){
+						#menu_combos{ display: none; }
+						#menu_vip{ display: none; }
+						#menu_menu{ display: block; }
+
+						#news_1{ font-size: 45px; }
+						#movies{ grid-template-columns: repeat( auto-fit, 100% ); }
+						.movie{ width: 100%; }
+						}
+
+@media (max-width: 399px){
+						#news_1{ font-size: 40px; }
+						#news_2{ font-size: 28px; }
+						.section_title{ font-size: 40px; }
+						}
+@media (max-width: 389px){
+						}
+
+@media (max-width: 349px){
+/*				.movie{
+					position: relative;
+					width: 320px;
+				}*/
+						#news{ height: 250px; }
+						#news_1{ font-size: 35px; }
+						}
+
+@media (max-width: 319px){
+						#news_1{ font-size: 30px; }
+						}
+
+@media (max-width: 379px){
+						#status{ display: none; }
+						}
+
+
+	</style>
+</head>
+<body>
+
+	<div id="bar">
+				<div id="bar_wrap">
+									<svg id="bar_wrap_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 160 160" enable-background="new 0 0 160 160" xml:space="preserve" ><g><path fill="#000" d="M160,160H22.101c-12.214,0-22.128-10.735-22.128-23.997c0-4.543,1.166-8.798,3.187-12.413l-0.015-0.032L71.489,0.039l30.921,55.879L44.228,128.02h98.07L160,160z"/></g></svg>
+									<div id="bar_wrap_title"><span>cine</span>A<span>ndes</span></div>
+									</div>
+
+				<div id="status">abierto</div>
+
+				<div id="menu">
+							<span id="menu_menu">menu</span>
+							<span id="menu_cartelera"><a href="#news">cartelera</a></span>
+							<span id="menu_combos"><a href="#combos">combos</a></span>
+							<span id="menu_comida"><a href="#comida">comida</a></span>
+							<span id="menu_membresia"><a href="#membresia">membresía</a></span>
+							<span id="menu_vip"><a href="#vip">vip</a></span>
+							</div>
+
+				</div>
+
+
+	<div id="legal">
+					Por disposición del gobierno nacional, toda persona mayor de 12 años debe presentar el carnet de vacunación con esquema completo contra el Covid-19, para ingresar a nuestras salas de Cine.
+					<br>
+					copyright © 2022 cineAndes. All rights reserved.
+					</div>
+
+
+	<div id="watermark"></div>
+
+
+	<div id="news">
+					<div id="news_1"><span>PROXIMAMENTE</span></div>
+					<div id="news_2"><span><b>desde</b>MAYO<b>en</b>GARZON</span></div>
+					</div>
+
+
+	<!-- <iframe width="480" height="280" src="https://www.youtube.com/embed/XDJPzMznAjU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+
+	<div id="movies"></div>
+
+
+
+
+
+
+
+
+
+
+	<div id="combos" class="section">
+								<span class="section_title">combos</span>
+								</div>
+	<div id="comida" class="section">
+								<span class="section_title">comida</span>
+								</div>
+	<div id="membresia" class="section">
+								<span class="section_title">membresia</span>
+								</div>
+	<div id="vip" class="section">
+								<span class="section_title">vip</span>
+								</div>
+
+
+	<div id="disclaimer" class="section">
+
+									<h1>DISCLAIMER</h1>
+									<br>
+									<br>
+									<ol>
+
+										<li>
+										<h2>hola</h2>
+										Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+										</li>
+										<br>
+
+										<li>
+										<h2>quiero trabajar en el cine</h2>
+										Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+										</li>
+										<br>
+
+
+										<li>
+										<h2>por qué contratarme ?</h2>
+										Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+										</li>
+										<br>
+
+										<li>
+										<h2>por qué cineAndes ?</h2>
+										Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+										</li>
+										<br>
+
+										<li>
+										<h2>los detalles</h2>
+										las secciones como combo
+										<br>
+										el diseño y el nombre,
+										<br>
+										actualizacion de fechas, admin base de datos
+										<br>
+										favicon,
+										<br>
+										formas de pago
+										<br>
+										el dominio y el email
+										<br>
+										el server,
+										<br>
+										las cuentas twitter - whatsapp,
+										<br>
+										el costo y el tiempo.
+										<br>
+
+										Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+										</li>
+										<br>
+
+										<br>
+										<br>
+
+										<h3>Gracias y atentamente,</h3>
+
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+
+										<h2>Y. PAOLA ORTIZ MORENO</h2>
+										CC. 1006031115
+
+										</ol>
+										</div>
+
+<script>
+	
+
+
+
+var movies_data = 	[
+					{
+					id 		: 1,
+					title 	: "Dr. Strange en el universo de la locura",
+					poster 	: "posters/poster_strange.jpg",
+					day 	: "06",
+					month 	: "mayo",
+					addons 	: "A7 - 130 min",
+					brand 	: ["marvel","brand_top_left"],
+					color 	: 0
+					},
+					{
+					id 		: 2,
+					title 	: "Thor: amor y trueno",
+					poster 	: "https://www.egames.news/__export/1639240314292/sites/debate/img/2021/12/11/thor-love-x-thunder-jane-foster-1.jpg_976912859.jpg",
+					day 	: "08",
+					month 	: "Julio",
+					addons 	: "A7 - 133 min",
+					brand 	: ["marvel","brand_top_left"],
+					color 	: 240
+					},
+					{
+					id 		: 3,
+					title 	: "jurassic: world dominio",
+					poster 	: "https://procinal.com/uploads/PELICULAS/Img_movies/Img_360x500/Jurassic%20word%20poster%201.jpg",
+					day 	: "09",
+					month 	: "Junio",
+					addons 	: "A7 - 133 min",
+					brand 	: ["universal", "brand_bottom_left"],
+					color 	: 60
+					},
+					{
+					id 		: 4,
+					title 	: "DC Liga de Super-Mascotas",
+					poster 	: "https://assets-prd.ignimgs.com/2021/12/22/dc-league-of-superpets-button-1640198012273.jpg",
+					day 	: "20",
+					month 	: "Mayo",
+					addons 	: "A7 - 133 min",
+					brand 	: ["warner", "brand_top_right"],
+					color 	: 280
+					},
+					{
+					id 		: 2,
+					title 	: "Thor: amor y trueno",
+					poster 	: "https://www.egames.news/__export/1639240314292/sites/debate/img/2021/12/11/thor-love-x-thunder-jane-foster-1.jpg_976912859.jpg",
+					day 	: "hoy",
+					month 	: "6 pm",
+					addons 	: "A7 - 133 min",
+					brand 	: ["marvel","brand_top_left"],
+					color 	: 180
+					},
+					{
+					id 		: 4,
+					title 	: "DC Liga de Super-Mascotas",
+					poster 	: "https://assets-prd.ignimgs.com/2021/12/22/dc-league-of-superpets-button-1640198012273.jpg",
+					day 	: "20",
+					month 	: "Mayo",
+					addons 	: "A7 - 133 min",
+					brand 	: ["warner", "brand_top_right"],
+					color 	: 300
+					},
+					{
+					id 		: 1,
+					title 	: "Dr. Strange en el universo de la locura",
+					poster 	: "posters/poster_strange.jpg",
+					day 	: "hoy",
+					month 	: "8 pm",
+					addons 	: "A7 - 130 min",
+					brand 	: ["marvel","brand_top_left"],
+					color 	: 0
+					},
+					{
+					id 		: 1,
+					title 	: "Dr. Strange en el universo de la locura",
+					poster 	: "posters/poster_strange.jpg",
+					day 	: "hoy",
+					month 	: "5 pm",
+					addons 	: "A7 - 130 min",
+					brand 	: ["marvel","brand_top_left"],
+					color 	: 130
+					},
+					{
+					id 		: 3,
+					title 	: "jurassic: world dominio",
+					poster 	: "https://procinal.com/uploads/PELICULAS/Img_movies/Img_360x500/Jurassic%20word%20poster%201.jpg",
+					day 	: "09",
+					month 	: "Junio",
+					addons 	: "A7 - 133 min",
+					brand 	: ["universal", "brand_bottom_left"],
+					color 	: 60
+					},
+					{
+					id 		: 2,
+					title 	: "Thor: amor y trueno",
+					poster 	: "https://www.egames.news/__export/1639240314292/sites/debate/img/2021/12/11/thor-love-x-thunder-jane-foster-1.jpg_976912859.jpg",
+					day 	: "08",
+					month 	: "Julio",
+					addons 	: "A7 - 133 min",
+					brand 	: ["marvel","brand_top_left"],
+					color 	: 240
+					},
+					{
+					id 		: 3,
+					title 	: "jurassic: world dominio",
+					poster 	: "https://procinal.com/uploads/PELICULAS/Img_movies/Img_360x500/Jurassic%20word%20poster%201.jpg",
+					day 	: "09",
+					month 	: "Junio",
+					addons 	: "A7 - 133 min",
+					brand 	: ["universal", "brand_bottom_left"],
+					color 	: 60
+					},
+					];
+
+
+
+
+
+var movies_element 	= document.getElementById('movies');
+var movies_html 	= ''; 
+
+var indice 		= 0;
+	longitud 	= movies_data.length;
+
+	for( indice; indice < longitud; indice++ ){
+
+
+									movies_html = movies_html + '<div class="movie" title="click para ver el trailer">'+
+																	'<div class="movie_poster" style="background: url('+ movies_data[ indice ]["poster"] +');">'+
+																							'<div class="movie_poster_brand ' +movies_data[ indice ]["brand"][0]+ ' ' +movies_data[ indice ]["brand"][1]+ '"></div>'+
+																							'</div>'+
+																	'<div class="movie_play"></div>'+
+																	'<div class="movie_description" style="background: hsl('+ movies_data[ indice ]["color"] +', 100%, 10%); border-left: 1px solid hsl( '+ movies_data[ indice ]["color"] +', 100%, 72% )";>'+
+																							'<div class="movie_description_title" style="color: hsl('+ movies_data[ indice ]["color"] +', 100%, 80%)">'+ movies_data[ indice ]["title"] +'</div>'+
+																							'<div class="movie_description_date">'+
+																															'<span class="movie_description_date_number" style="color: hsl('+ movies_data[ indice ]["color"] +', 100%, 60%)">'+ movies_data[ indice ]["day"] +'</span>'+
+																															'<span class="movie_description_date_month" style="background: hsl('+ movies_data[ indice ]["color"] +', 100%, 60%)">'+ movies_data[ indice ]["month"] +'</span>'+
+																															'</div>'+
+																							'<div class="movie_description_addons">A7 - 130 min</div>'+
+																							'</div>'+
+																	'</div>';
+												}
+
+	movies_element.innerHTML = movies_html;
+
+
+
+/*
+brand
+poster
+title
+day
+month
+addons
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
